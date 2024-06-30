@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int partition(vector<int> &arr, int low, int high) {
+int partition(vector<int> arr, int low, int high) {
     int pivot = arr[low];
     int i = low;
     int j = high;
@@ -20,35 +20,29 @@ int partition(vector<int> &arr, int low, int high) {
     return j;
 }
 
-void qs(vector<int> &arr, int low, int high) {
+void quickSort(vector<int> arr, int low, int high) {
     if (low < high) {
         int pIndex = partition(arr, low, high);
-        qs(arr, low, pIndex - 1);
-        qs(arr, pIndex + 1, high);
+        quickSort(arr, low, pIndex - 1);
+        quickSort(arr, pIndex + 1, high);
     }
 }
 
-vector<int> quickSort(vector<int> arr) {
-    qs(arr, 0, arr.size() - 1);
-    return arr;
-}
-
-int main()
-{
+int main() {
     vector<int> arr = {4, 6, 2, 5, 7, 9, 1, 3};
     int n = arr.size();
-    cout << "Before Using quick Sort: " << endl;
-    for (int i = 0; i < n; i++)
-    {
+    cout << "Before Using Quick Sort: " << endl;
+    for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
     cout << endl;
 
-    arr = quickSort(arr);
-    cout << "After Using quick sort: " << "\n";
+    quickSort(arr, 0, arr.size() - 1);
+
+    cout << "After Using Quick Sort: " << endl;
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
-    cout << "\n";
+    cout << endl;
     return 0;
 }
