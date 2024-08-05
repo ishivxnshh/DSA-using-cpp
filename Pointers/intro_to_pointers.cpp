@@ -1,15 +1,16 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main () {
+int main()
+{
 
-    int num  = 5 ;
+    int num = 5;
 
     cout << num << endl;
 
     // address of Operator - &
 
-    cout <<" address of num is " << &num << endl;
+    cout << " address of num is " << &num << endl;
 
     int *ptr = &num;
 
