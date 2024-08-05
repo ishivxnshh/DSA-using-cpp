@@ -3,7 +3,7 @@
 using namespace std;
 
 
-// } Driver Code Endsc
+// } Driver Code Ends
 class Solution{
     public:
     //arr1,arr2 : the arrays
