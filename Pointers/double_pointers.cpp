@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void update(int **p2)
+void update(int **p2) 
 {
     // p2 = p2 + 1;
     // kuch change hoga  - NO
