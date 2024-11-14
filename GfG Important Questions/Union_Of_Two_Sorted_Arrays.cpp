@@ -53,8 +53,7 @@ class Solution{
                     lastelementinserted = arr2[j];
                 }
                 j++;
-        }
-        
+        }    
         return res;
     }
 };
