@@ -9,7 +9,7 @@ void maxPair(vector<int> vec, int k) {
     {
         maxSum+=vec[i];
     }
-     
+      
     for(int i = k; i < vec.size(); i++)
     {
         windowSum += vec[i] - vec[i-k];
