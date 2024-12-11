@@ -6,7 +6,7 @@ void maxPair(vector<int> vec, int k) {
     int maxSum = 0;
     int maxSIndex = 0;
     for(int i = 0; i < k; i++)
-    {
+    { 
         maxSum+=vec[i];
     }
       
