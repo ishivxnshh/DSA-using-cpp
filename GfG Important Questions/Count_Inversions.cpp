@@ -6,10 +6,13 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
+
+    
+
     // Function to count inversions in the array.
     int inversionCount(vector<int> &arr) {
 
-        //Brute-Force Approach(tc:O(n^2), sc:O(1)) (tcs passed: 1110/1115)
+        // Brute-Force Approach(tc:O(n^2), sc:O(1)) (tcs passed: 1110/1115)
         // int cnt = 0;
         // for(int i=0;i<arr.size();i++)
         // {
@@ -21,6 +24,7 @@ class Solution {
         // }
         // return cnt;
 
+        //  Optimized Approach(tc:O(nlogn), sc:O(n))
         
     }
 };
