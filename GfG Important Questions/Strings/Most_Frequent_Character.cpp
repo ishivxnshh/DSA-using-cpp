@@ -10,10 +10,10 @@ class Solution
 {
     public:
     //Function to find the maximum occurring character in a string.
-    char getMaxOccuringChar(string str)
+    char getMaxOccuringChar(string s)
     {
         int freq[26] = {0};
-        for(char ch : str)
+        for(char ch : s)
         {
             freq[ch - 'a']++;
         }
