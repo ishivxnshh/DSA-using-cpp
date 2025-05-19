@@ -50,11 +50,59 @@ Node* insertionBeforeHead(Node* head, int val)
     return newNode;
 }
 
+Node* insertionBeforeTail(Node* head, int val)
+{
+    if(head -> next == NULL)
+    {
+        return insertionBeforeHead(head, val);
+    }
+    Node* tail = head;
+    while(tail -> next != NULL)
+    {
+        tail = tail -> next;
+    }
+    Node* prev = tail -> back;
+    Node* newNode = new Node(val, tail, prev);
+    prev -> next = newNode;
+    tail -> back = newNode;
+    return head;    
+}
+
+Node* insertionBeforeKthElement(Node* head, int val, int k)
+{
+    if (k == 1)
+        return insertionBeforeHead(head, val);
+    Node* temp = head;
+    int cnt = 0;
+    while(temp != NULL)
+    {
+        cnt++;
+        if(cnt == k)
+            break;
+        temp = temp -> next;
+    }
+    Node* prev = temp -> back;
+    Node* newNode = new Node(val, temp, prev);
+    prev -> next = newNode;
+    temp -> back = newNode;
+    return head;
+}
+
+void insertionBeforeNode(Node* node, int val)
+{
+    Node* prev = node -> back;
+    Node* newNode = new Node(val, node, prev);
+    prev -> next = newNode;
+    node -> back = newNode;
+}
+
 int main()
 {
     vector<int> arr = {1, 2, 3, 4, 5};
     Node* head = convertArrayToDLL(arr);
     // head = insertionBeforeHead(head, 100);
-    head = insertionBeforeHead(head, 100);
+    // head = insertionBeforeTail(head, 100);
+    // head = insertionBeforeKthElement(head, 100, 3);
+    insertionBeforeNode(head -> next, 100);
     print(head);
 }

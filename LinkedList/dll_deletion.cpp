@@ -141,7 +141,6 @@ int main()
     // head = deleteHead(head);
     // head = deleteTail(head);
     // head = deleteKthElement(head, 3);
-    // head = deleteNode
     deleteNode(head -> next);
     print(head);
 }
