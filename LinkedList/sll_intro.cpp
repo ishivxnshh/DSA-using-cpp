@@ -22,7 +22,7 @@ struct Node
 };
 
 
-Node* covertArr2LL(vector<int> arr)
+Node* convertArrayToSLL(vector<int> arr)
 {
     Node* head = new Node(arr[0]);
     Node* mover = head;
@@ -69,7 +69,7 @@ int main()
     // Node* y = new Node(arr[0]);
     // cout << y -> data;
 
-    Node* head = covertArr2LL(arr);
+    Node* head = convertArrayToSLL(arr);
     // cout << head -> data;
 
     Node* temp = head;
