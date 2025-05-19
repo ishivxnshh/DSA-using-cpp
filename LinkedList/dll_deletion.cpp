@@ -115,12 +115,33 @@ Node* deleteKthElement(Node* head, int k)
     }
 }
 
+void deleteNode(Node* temp)
+{
+    Node* prev = temp -> back;
+    Node* front = temp -> next;
+
+    if(front == NULL)
+    {
+        prev -> next = NULL;
+        temp -> back = NULL;
+        delete temp;
+        return;
+    }
+
+    prev -> next = front;
+    front -> back = prev;
+    temp -> back = temp -> next = NULL;
+    free(temp);
+}
+
 int main()
 {
     vector<int> arr = {1, 2, 3, 4, 5};
     Node* head = convertArrayToDLL(arr);
     // head = deleteHead(head);
     // head = deleteTail(head);
-    head = deleteKthElement(head, 3);
+    // head = deleteKthElement(head, 3);
+    // head = deleteNode
+    deleteNode(head -> next);
     print(head);
 }
