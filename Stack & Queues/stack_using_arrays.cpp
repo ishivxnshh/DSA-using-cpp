@@ -1,26 +1,33 @@
-#include<bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
-class Stack {
+
+class Stack
+{
   int size;
-  int * arr;
+  int *arr;
   int top;
-  public:
-    Stack() {
-      top = -1;
-      size = 1000;
-      arr = new int[size];
-    }
-  void push(int x) {
-    if (top >= size - 1) {
+
+public:
+  Stack()
+  {
+    top = -1;
+    size = 1000;
+    arr = new int[size];
+  }
+  void push(int x)
+  {
+    if (top >= size - 1)
+    {
       cout << "Stack Overflow" << endl;
       return;
     }
     top++;
     arr[top] = x;
   }
-  int pop() {
-    if (top < 0) {
+  int pop()
+  {
+    if (top < 0)
+    {
       cout << "Stack Underflow" << endl;
       return -1;
     }
@@ -28,18 +35,22 @@ class Stack {
     top--;
     return x;
   }
-  int Top() {
-    if (top < 0) {
+  int Top()
+  {
+    if (top < 0)
+    {
       cout << "Stack is Empty" << endl;
       return -1;
     }
     return arr[top];
   }
-  int Size() {
+  int Size()
+  {
     return top + 1;
   }
 };
-int main() {
+int main()
+{
 
   Stack s;
   s.push(6);

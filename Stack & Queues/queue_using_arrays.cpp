@@ -1,60 +1,82 @@
 #include <iostream>
 using namespace std;
 
-class Queue {
+class Queue
+{
+    int currSize;
     int size;
     int *arr;
     int start, end;
+
 public:
-    Queue() {
+    Queue()
+    {
         size = 1000;
         arr = new int[size];
+        currSize = 0;
         start = -1;
         end = -1;
     }
-    void push(int x) {
-        if (end == size - 1) {
-            cout << "Queue Overflow" << endl;
+    void push(int x)
+    {
+        if (currSize == size)
+        {
+            cout << "Queue is Full" << endl;
             return;
         }
-        if (start == -1) start = 0;
-        end++;
+        if (currSize == 0)
+        {
+            start = 0;
+            end = 0;
+        }
+        else
+            end = (end + 1) % size;
         arr[end] = x;
+        currSize++;
     }
-    int pop() {
-        if (start == -1 || start > end) {
-            cout << "Queue Underflow" << endl;
+
+    int pop()
+    {
+        if (currSize == 0) {
+            cout << "Queue is Empty" << endl;
             return -1;
         }
-        int val = arr[start++];
-        if (start > end) { // Reset queue if empty
-            start = -1;
-            end = -1;
+        int result = arr[start];
+        if (currSize == 1) {
+            start = end = -1;
+        } else {
+            start = (start + 1) % size;
         }
-        return val;
+        currSize--;
+        return result;
     }
-    int Front() {
-        if (start == -1 || start > end) {
+
+    int front()
+    {
+        if (currSize == 0)
+        {
             cout << "Queue is Empty" << endl;
             return -1;
         }
         return arr[start];
     }
-    int Size() {
-        if (start == -1 || start > end) return 0;
-        return end - start + 1;
+
+    int getSize()
+    {
+        return currSize;
     }
 };
 
-int main() {
+int main()
+{
     Queue q;
     q.push(6);
     q.push(3);
     q.push(7);
-    cout << "Front of queue before deleting any element: " << q.Front() << endl;
-    cout << "Size of queue before deleting any element: " << q.Size() << endl;
+    cout << "Front of queue before deleting any element: " << q.front() << endl;
+    cout << "Size of queue before deleting any element: " << q.getSize() << endl;
     cout << "The element deleted is: " << q.pop() << endl;
-    cout << "Size of queue after deleting an element: " << q.Size() << endl;
-    cout << "Front of queue after deleting an element: " << q.Front() << endl;
+    cout << "Size of queue after deleting an element: " << q.getSize() << endl;
+    cout << "Front of queue after deleting an element: " << q.front() << endl;
     return 0;
 }
