@@ -1,5 +1,10 @@
-// User function template for C++
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <algorithm>
+using namespace std;
 
+// User function template for C++
 class Solution
 {
 public:
@@ -69,3 +74,20 @@ public:
         return low;
     }
 };
+
+int main()
+{
+    int n, m;
+    cout << "Enter number of rows and columns: ";
+    cin >> n >> m;
+    vector<vector<int>> mat(n, vector<int>(m));
+    cout << "Enter the matrix elements (row-wise sorted):\n";
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            cin >> mat[i][j];
+
+    Solution sol;
+    int result = sol.median(mat);
+    cout << "Median is: " << result << endl;
+    return 0;
+}

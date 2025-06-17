@@ -1,15 +1,20 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 // User function template for C++
-class Solution {
-  public:
+class Solution
+{
+public:
     int lowerBound(vector<int> vec, int m, int k)
     {
         int low = 0;
         int high = m - 1;
         int ans = m;
-        while(low <= high)
+        while (low <= high)
         {
             int mid = (low + high) >> 1;
-            if(vec[mid] >= k)
+            if (vec[mid] >= k)
             {
                 ans = mid;
                 high = mid - 1;
@@ -22,7 +27,8 @@ class Solution {
         return ans;
     }
 
-    int rowWithMax1s(vector<vector<int>> &arr) {
+    int rowWithMax1s(vector<vector<int>> &arr)
+    {
         // Most Optimized Solution (done by me) (tc: O(n + m), sc: O(1))
         // int res = -1;
         // int i = 0;
@@ -45,10 +51,10 @@ class Solution {
         int index = -1;
         int cnt_max = -1;
         int i = 0;
-        while(i < arr.size())
+        while (i < arr.size())
         {
             int cnt_ones = arr[i].size() - lowerBound(arr[i], arr[i].size(), 1);
-            if(cnt_ones > 0 && cnt_ones > cnt_max)
+            if (cnt_ones > 0 && cnt_ones > cnt_max)
             {
                 cnt_max = cnt_ones;
                 index = i;
@@ -58,3 +64,20 @@ class Solution {
         return index;
     }
 };
+
+int main()
+{
+    int n, m;
+    cout << "Enter number of rows and columns: ";
+    cin >> n >> m;
+    vector<vector<int>> arr(n, vector<int>(m));
+    cout << "Enter the matrix (each row in a new line):\n";
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            cin >> arr[i][j];
+
+    Solution sol;
+    int result = sol.rowWithMax1s(arr);
+    cout << "Row with maximum 1s: " << result << endl;
+    return 0;
+}
