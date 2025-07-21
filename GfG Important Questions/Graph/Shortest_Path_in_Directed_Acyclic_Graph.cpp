@@ -24,6 +24,7 @@ private:
 public:
     vector<int> shortestPath(int V, int E, vector<vector<int>> &edges)
     {
+        // O(E) + O(V + E) + O(V + E) = **O(V + E)**
         vector<vector<pair<int, int>>> adj(V);
         for (int i = 0; i < E; i++)
         {
